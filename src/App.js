@@ -12,7 +12,7 @@ function App() {
     <div className="App container h-100">
         <Switch>
           <Route path={ "/login"} render={() => <Login />}/>
-          <Route path={ "/"} exact render={() => <Home />}/>
+          <Route path={ "/"} exact render={() => <Home loggedIn={false}/>}/>
           <Redirect to={ "/not-found"}/>
         </Switch>
     </div>

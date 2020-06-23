@@ -1,21 +1,24 @@
 import React, {Component} from "react";
 import logo from "./logo.png";
+import {Redirect} from "react-router-dom";
+import PropTypes from 'prop-types';
 
-class Home extends Component {
 
 
-    render() {
-        return (
-            <div className="container h-75 justify-content-center align-items-center d-flex flex-column">
-                <img src={logo} alt="Logo"/>
-                <form className="mt-n5">
-                    <div className="form-group ">
-                        <input type="email" className="form-control" id="inputEmail4" placeholder="Password"/>
-                    </div>
-                </form>
-            </div>
-        )
-    }
-}
+
+const Home = props => {
+    if (!props.loggedIn)
+        return <Redirect to="/login"/>;
+
+    return (
+        <div className="noOpacity">
+            {/*<Modal body="feedback" okButtonText="Download feedback"/>*/}
+        </div>
+    );
+};
+
+Home.propTypes = {
+    loggedIn: PropTypes.bool.isRequired
+};
 
 export default Home;
